@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Nat.js – Angular-nx, générateur JavaScript</title>
+
+		<meta name="description" content="Une présentation, basé sur reveal.js">
+		<meta name="author" content="Mathieu Bellange">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<!-- Custom style -->
+		<link rel="stylesheet" href="css/prez.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background-image="images/upgrading-to-angular2-with-ng-upgrade.jpg" data-background-size="contain" class="title" data-transition="fade-out">
+					<h1>Nat.js</h1>
+					<h3>d'Angularjs à Angular</h3>
+                    <img src="images/angular-migration.png" width="50%">
+					<p>
+						<small>Présenté par <a href="mailto:bellangema-ext@natixis.com">Mathieu Bellange</a> / <a href="mailto:ld-dsi-st-eqs-dew@natixis.com">EQS - DEW</a></small>
+					</p>
+				</section>
+
+				<!-- Introduction -->
+                <section data-background-image="images/upgrading-to-angular2-with-ng-upgrade.jpg" data-background-size="contain" >
+                    <h3>Programme</h3>
+                </section>
+                <section>
+                    <h2>Architecture et écosystème d'Angular 2</h2>
+                    <p>
+                        Composant, langage, module et autres concepts
+                    </p>
+                    <p>
+                        <small><q><a href="http://angular.io/">http://angular.io/</a></q></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Migration vers Angular 2</h2>
+                    <p>
+                        Problématique, solution et super héros
+                    </p>
+                    <p>
+                        <small><q><a href="https://angular.io/docs/ts/latest/guide/upgrade.html">https://angular.io/docs/ts/latest/guide/upgrade.html</a></q></small>
+                    </p>
+                </section>
+                <!-- nouveautés Angular 2 -->
+				<section>
+                    <section data-background-image="images/superhero-paper.png">
+                        <h2>Angular 2 à la loupe</h2>
+                    </section>
+                    <section>
+                        <h3>Architecture, nouveautés et ecosystème</h3>
+                        <p>
+                            Sous le capot d'Angular 2
+                        </p>
+                        <p>
+                            <small><q></q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section data-background-image="images/superhero-paper.png">
+                        <h2>Architecture orientée composant</h2>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section data-background-color="#ffffff">
+                        <h2>Aperçu</h2>
+                        <img src="images/overview2.png" class="stretch">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Les modules</h2>
+                        <p>
+                            Module au sens ES2015
+                        </p>
+                        <p>
+                            <small><q>N'a rien à voir avec angular.module d'angularjs</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Les modules applicatifs</h3>
+                        <p>
+                            Un bloc de code dédié à un seul but
+                        </p>
+                        <p>
+                            <small><q>Un exemple simple est un composant Angular 2 qui sera exporté comme un module</q></small>
+                        </p>
+                        <img src="images/module.png">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Les modules de libairies</h3>
+                        <p>
+                            Un module qui peut exporter plusieurs fonctions, constantes, objets...
+                        </p>
+                        <p>
+                            <small><q>Les librairies Angular 2 sont des modules qui exposent de nombreuses fonctionnalités</q></small>
+                        </p>
+                        <img src="images/library-module.png">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section data-background-color="#ffffff">
+                        <h2>Les composants Angular 2</h2>
+                        <img src="images/component-tree.png" width="450px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Le composant</h3>
+                        <p>
+                            Pilote un template html, appel des services et gère le data-binding
+                        </p>
+                        <p>
+                            <small><q>Il se rapproche des directives Angular 1</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Le template html</h3>
+                        <p>
+                            Accompagne le composant
+                        </p>
+                        <p>
+                            <small><q>Il permet de binder le comportement du composant à la vue html</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section data-background-color="#ffffff">
+                        <h2>Les metadata</h2>
+                        <img src="images/template-metadata-component.png">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>La Définition d'un composant</h3>
+                        <p>
+                            Permet d'enrichir le composant avec une logique Angular
+                        </p>
+                        <p>
+                            <small><q>Ce sont des class ES2015 et les metadata permettent de les traiter comme des composants Angular</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section data-background-color="#ffffff">
+                        <h2>Data binding</h2>
+                        <img src="images/component-databinding.png" >
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Lien entre composant et template html</h3>
+                        <p>
+                            Permet au composant et au fragment html d'intéragir
+                        </p>
+                        <p>
+                            <small><q>La syntaxe de data-binding est différente que pour Angular 1</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Lien entre composants</h3>
+                        <p>
+                            Permet au composant parent et enfant d'interagir
+                        </p>
+                        <img src="images/parent-child-binding.png" >
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section data-background-color="#ffffff">
+                        <h2>Directives</h2>
+                        <img src="images/directive.png">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Directives Angular</h3>
+                        <p>
+                            Permet d'enrichir le DOM avec un comportement
+                        </p>
+                        <p>
+                            <small><q>La syntaxe des directives est différente que pour Angular 1</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h2>Services</h2>
+                        <img src="images/service.png" >
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Services Angular</h3>
+                        <p>
+                            Possède le même rôle que les services Angular 1
+                        </p>
+                        <p>
+                            <small><q>Les services Angular 2 sont des class ES2015</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h2>Injection de dépendances</h2>
+                        <img src="images/injector-injects.png" >
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Injector</h3>
+                        <p>
+                            Service qui permet à Angular 2 d'injecter un service dans un composant ou un autre service
+                        </p>
+                        <p>
+                            <small><q>Logique identique à celle d'Angular 1</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Provider</h3>
+                        <p>
+                            Service qui permet à Angular 2 d'enregistrer un service pour le rendre accessible par l'Injector
+                        </p>
+                        <p>
+                            <small><q>Peut être enregistré au bootstrap de l'application où dans un composant</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+
+                    <section data-background-image="images/superhero-paper.png">
+                        <h2>Nouveautés relatives à Angular 2</h2>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Changements depuis Angular 1</h2>
+                        <p>
+                            Modifications sur le coeur d'Angular, la syntaxe, le data-binding...
+                        </p>
+                        <p>
+                            <small><q>Certains ont un impact important sur le développement</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h2>DOM et data-binding</h2>
+                        <img src="images/curly-bracket.gif" >
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>HTML parser</h3>
+                        <p>
+                            Développement d'un parser HTML custom à Angular
+                        </p>
+                        <p>
+                            <small><q>jqlite, utilisé pour Angular 1, n'est plus utilisé dans Angular 2</q></small>
+                        </p>
+                        <aside class="notes">
+                            Améliore les performances de rendus et se détache du DOM pour le rendu serveur (ou web-workers)
+                        </aside>
+                    </section>
+
+                   <!-- <section>
+                        <h3>Détection des modifications avec zone</h3>
+                        <p>
+                            Zone permet la mise en place de watcher asynchrone et d'émettre des events à chaque changement
+                        </p>
+                        <p>
+                            <small><q>scope d'Angular 1 n'est plus utilisé pour maintenir la cohérence des données</q></small>
+                        </p>
+                        <aside class="notes">
+                            Recette simple, asynchronisme + pattern observateur
+                            Zone.js permet une utilisation par n'importe quelle moteur js d'angular, pas de référence au DOM
+                        </aside>
+                    </section> -->
+
+                    <section>
+                        <h3>Syntaxe du data binding</h3>
+                        <p>
+                            La syntaxe change pour permettre de définir directement un binding mono ou bi directionnel
+                        </p>
+                        <img src="images/databinding.png">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                   <!-- <section data-background-color="#ffffff">
+                        <h2>Communication avec le back-end</h2>
+                        <img src="images/backend-icon.png" >
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Observables avec RxJS</h3>
+                        <p>
+                            Angular 2 utilise Observables au lieu de Promise
+                        </p>
+                        <p>
+                            <small><q>Il est tout de même possible d'obtenir un promise depuis Observables avec toPromise()</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section> -->
+
+                    <section data-background-color="#ffffff">
+                        <h2>Pipes</h2>
+                        <img src="images/pipes.jpg" >
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Pipes remplaçant des filters</h3>
+                        <p>
+                            Traite la donnée en exécutant une fonction
+                        </p>
+                        <p>
+                            <small><q>Les pipes peuvent être chainés pour réaliser un travail complexe par étape</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+
+                    <section data-background-image="images/superhero-paper.png">
+                        <h2>Ecosystème javascript</h2>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Plomberie Javascript</h3>
+                        <p>
+                            Module loader, package manager et  langage
+                        </p>
+                        <p>
+                            <small><q>Le framework utilise les dernières évolutions sur le développement Javascript</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Module loader</h3>
+                        <img src="images/load-bar.png" width="225px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Module JavaScript</h3>
+                        <p>
+                            Bloc de code exportant des fonctions, objet, constantes
+                        </p>
+                        <p>
+                            <small><q>Plusieurs spécifications existent commonJs, Amd, ES6 et global</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>SystemJs</h3>
+                        <p>
+                            Librairie permettant de charger des modules dans une application
+                        </p>
+                        <p>
+                            <small><q>SystemJs peut charger n'importe quel type de module et l'exposer dans le reste de l'application</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <!-- <section>
+                        <h3>Alternatives</h3>
+                        <p>
+                            Browserify, RequireJs pour les plus connus
+                        </p>
+                        <p>
+                            <small><q>Browserify suit la spécification commonJs et require la sépcification AMD</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Pourquoi SystemJs ?</h3>
+                        <p>
+                            Basé sur le poylfill es6-module-loader, gestion de tous les types de modules et poussé par l'équipe Angular
+                        </p>
+                        <p>
+                            <small><q>La spec module loader n'a pas été incluse dans le es6 et repoussé à une prochaine version</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>  -->
+
+                    <section data-background-color="#ffffff">
+                        <h3>Module bundler</h3>
+                        <img src="images/package.png" width="225px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Rôle du module bundler</h3>
+                        <p>
+                            Livraison d'un bundle pour le déploiement en production
+                        </p>
+                        <p>
+                            <small><q>Il se base sur les modules de l'application pour packager une application optimisée et prête pour la production</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Webpack, le leader du marché</h3>
+                        <p>
+                            Il réalise le travail d'un module loader, de grunt/gulp et beaucoup d'autres choses
+                        </p>
+                        <p>
+                            <small><q>Serveur de développement, utilisation de transpiler, HMR...</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <!-- <section>
+                        <h3>Jspm, l'outsider</h3>
+                        <p>
+                            Développé par l'équipe de SystemJs, manque de fonctionnalités par rapport à Webpack
+                        </p>
+                        <p>
+                            <small><q>Encore très limité par rapport à Webpack avec une documentation et une communauté moins importante</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section> -->
+
+                    <section data-background-color="#ffffff">
+                        <h3>Le langage</h3>
+                        <img src="images/language.png" width="250px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>ES6 ou TypeScript ?</h3>
+                        <p>
+                            Faut-il développer avec Angular 2 en ES6 ou en TypeScript ?
+                        </p>
+                        <p>
+                            <small><q>Angular 2 est développé en TypeScript</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>TypeScript</h3>
+                        <ul>
+                            <li>Utilisation d'un transpiler TypeScript</li>
+                            <li>Le langage d'Angular 2</li>
+                            <li>Un langage typé</li>
+                        </ul>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>ES6</h3>
+                        <ul>
+                            <li>Utilisation d'un transpiler Babel, Traceur</li>
+                            <li>Syntaxe Angular 2 identique avec l'intégration de plugin Babel pour la gestion des annotations</li>
+                            <li>Un langage non typé</li>
+                        </ul>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Conclusion ?</h3>
+                        <p>
+                           Le choix de ces technologies va fortement dépendre de l'équipe impliqué dans le développement
+                        </p>
+                        <p>
+                            <small><q>ES6 comme TypeScript demande une courbe d'apprentissage plus ou moins longue</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <!-- <section>
+                        <h3>Bonus : mon choix</h3>
+                        <p>
+                            ES6 + Webpack
+                        </p>
+                        <p>
+                            <small><q>La flexibilité du JavaScript et la puissance de Webpack</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section> -->
+
+				</section>
+
+                <!-- Etude sur la migration vers angular 2 -->
+                <section>
+                    <section data-background-image="images/upgrading-to-angular2-with-ng-upgrade.jpg" data-background-size="contain">
+                        <h2>Angular-transition</h2>
+                        <img src="images/angular-migration.png" width="50%">
+                    </section>
+                    <section data-background-image="images/angular2-mountain.png" data-background-size="contain">
+
+                    </section>
+                    <section>
+                        <h3>Problématique</h3>
+                        <p>
+                            De nombreux changements apportés avec Angular 2
+                        </p>
+                        <p>
+                            <small><q>Architecture de l'application, écosystème JavaScript, langage...</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Solutions envisagées</h3>
+                        <p>
+                            Méthode big bang ou incrémentale
+                        </p>
+                        <p>
+                            <small><q>Chaque solution à ses avantages et ses inconvénients</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Comparaison</h3>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Méthode</th>
+                                <th>Taille</th>
+                                <th>Dépendances</th>
+                                <th>Temps</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Big Bang</td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+++</td>
+                            </tr>
+                            <tr>
+                                <td>Incrémentale</td>
+                                <td>+++</td>
+                                <td>+++</td>
+                                <td>+</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Big Bang</h3>
+                        <img src="images/explosion.jpg" width="250px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Taille et complexité</h3>
+                        <p>
+                            Plus l'application est importante et plus elle sera longue à migrer
+                        </p>
+                        <p>
+                            <small><q>Il faut aussi tenir compte de la complexité de celle-ci ainsi que du niveau de respect des règles de développement angularjs</q></small>
+                        </p>
+                        <aside class="notes">
+                            On peut citer la syntaxe controller as et la non utilisation du scope pour stocker les données, une fonction par fichier js,
+                            la couverture de tests pour s'assurer de ne rien casser
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Dépendances</h3>
+                        <p>
+                            Certaines dépendances peuvent être compliquées à migrer
+                        </p>
+                        <p>
+                            <small><q>Certaines ne fonctionneront tout simplement pas</q></small>
+                        </p>
+                        <aside class="notes">
+                            La version 0.2.x d'ui-router ne fonctionne pas avec Angular 2
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Temps</h3>
+                        <p>
+                            Va directement dépendre de la taille et de la complexité de l'application
+                        </p>
+                        <p>
+                            <small><q>L'application est off pendant toute la migration</q></small>
+                        </p>
+                        <aside class="notes">
+                            La relation entre taille et temps n'est pas linéaire du fait de la complexité
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Incrémental</h3>
+                        <img src="images/incremental.png" width="250px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Taille et complexité</h3>
+                        <p>
+                            L'application migre par morceau, la taille et la complexité de l'application est moins impactant
+                        </p>
+                        <p>
+                            <small><q>Chaque brique peut être migrée à son rythme sans impacter le reste de l'application</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Dépendances</h3>
+                        <p>
+                            Les dépendances problèmatiques peuvent être migrées au cas par cas
+                        </p>
+                        <p>
+                            <small><q>On peut attendre de migrer les dépendances au fur et à mesure des sorties de nouvelles versions ou les remplacer</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Temps</h3>
+                        <p>
+                            Va directement dépendre de la taille et de la complexité de l'application
+                        </p>
+                        <p>
+                            <small><q>L'application est fonctionnelle durant toute la migration</q></small>
+                        </p>
+                        <aside class="notes">
+                            La relation entre taille et temps n'est pas linéaire du fait de la complexité
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Choix de la méthode</h3>
+                        <p>
+                            Va dépendre de l'application, des moyens alloués à la migration...
+                        </p>
+                        <p>
+                            <small><q>Une application qui envisage une migration doit analyser son existant pour définir quelle méthode utilisée</q></small>
+                        </p>
+                        <aside class="notes">
+                            Une migration big bang reviens quasiment à réécrire l'applciation from scratch
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Migration d'une application</h3>
+                        <img src="images/migration.jpg" width="350px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                   <!-- <section>
+                        <h3>Tour of heroes</h3>
+                        <p>
+                            Migration Angular 1.3 vers Angular 2
+                        </p>
+                        <p>
+                            <small><q>Réécriture du tuto Angular 2 en Angular 1</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section> -->
+
+                    <section>
+                        <h3>Méthode</h3>
+                        <p>
+                            Migration incrémentale vers Angular 2
+                        </p>
+                        <p>
+                            <small><q>Suivant les pré requis Angular 2, réaliser une migration incrémentale d'une application en Angular < 1.5</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Etapes</h3>
+                        <ul>
+                            <li>Changement d'architecture</li>
+                            <li>Modularisation de l'application</li>
+                            <li>Evolution du langage</li>
+                            <li>Passage à Angular 2</li>
+                        </ul>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Changement d'architecture</h3>
+                        <img src="images/component-based-architecture.svg">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Isolation du scope</h3>
+                        <p>
+                            Première chose à réaliser, supprimer toute référence au scope
+                        </p>
+                        <p>
+                            <small><q>$scope ne doit plus être référencé que pour $on, $watch...</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <!-- <section>
+                        <h3>Cause : Disparition du scope</h3>
+                        <p>
+                            Le scope est supprimé en Angular 2
+                        </p>
+                        <p>
+                            <small><q>Chaque composant possèdera un 'scope isolé' et la communication entre composant se fera par évênement au sein d'Angular 2</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section> -->
+
+                    <section>
+                        <h3>Syntaxe Controller As</h3>
+                        <p>
+                            Présent depuis Angular 1.2
+                        </p>
+                        <p>
+                            <small><q>Consiste à isoler le scope d'un controller pour qu'il ne pollue pas le scope de l'application</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Controller</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+                                function heroesController(HeroesService) {
+  'use strict';
+  var vm = this;
+  HeroesService.getAll().then(function(heroes) {
+    vm.heroes = heroes;
+  });
+  vm.onSelect = function(hero) {
+    vm.selectedHero = hero;
+  };
+}
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Route</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+$stateProvider
+  .state('heroes', {
+    url: 'heroes',
+    templateUrl: 'app/heroes/heroes.template.html',
+    controller: 'HeroesController as heroesController'
+  }
+});
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Template</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+&lt;ul class=&quot;heroes&quot;&gt;
+  &lt;li ng-repeat=&quot;hero in heroesController.heroes&quot;
+         ng-click=&quot;heroesController.onSelect(hero)&quot;&gt;
+    &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div ng-if=&quot;heroesController.selectedHero&quot;&gt;
+  &lt;h2&gt;
+    {{ heroesController.selectedHero.name | uppercase }} is my hero
+  &lt;/h2&gt;
+&lt;/div&gt;
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            Ne pas déclarer le controller dans le template
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Découpage en composant</h3>
+                        <p>
+                            Ajout de directives pour chaque page
+                        </p>
+                        <p>
+                            <small><q>Si possible, découper chaque partie de page en directive avec leur propre controller</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Déclaration des controllers</h3>
+                        <p>
+                            Déclarer les controller de chaque page dans les directives correspondantes
+                        </p>
+                        <p>
+                            <small><q>Les fichiers html et les routes ne doivent plus déclarer les controllers</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <!-- <section>
+                        <h3>Cause : Disparition du controller</h3>
+                        <p>
+                            Angular 2 ne déclare plus de controller, le composant intègre totalement le travail du controller
+                        </p>
+                        <p>
+                            <small><q>Le composant est une class ES2015 et aura le rôle de controller</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section> -->
+
+                    <section>
+                        <h3>Correction des routes</h3>
+                        <p>
+                            Pointe vers une directive et plus vers une page html
+                        </p>
+                        <p>
+                            <small><q>Les controllers sont aussi supprimés des routes</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Directive</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+angular
+  .module('angular-transition.heroes')
+  .directive('heroes', function() {
+    'use strict';
+    return {
+      restrict: 'E',
+      templateUrl: 'app/heroes/heroes.template.html',
+      controller: 'HeroesController',
+      controllerAs: '$ctrl',
+      scope: {}
+    };
+  });
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            Restrict E et $ctrl, valeur par défaut du component 1.5
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Route</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+$stateProvider
+  .state('heroes', {
+    url: 'heroes',
+    template: '&lt;heroes&gt;&lt;/heroes&gt;'
+  });
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Migration Angular 1.5</h3>
+                        <p>
+                            Introduction de la notion de component
+                        </p>
+                        <p>
+                            <small><q>Le component d'Angular 1.5 est apparu pour faciliter la migration vers Angular 2</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Caractéristique</h3>
+                        <p>
+                            Un component est une directive de type element, avec un scope isolé et une syntaxe controller As
+                        </p>
+                        <p>
+                            <small><q>Certaines propriétés des directives ne sont plus accessible en component, voir <a href="https://docs.angularjs.org/guide/component">la documentation angular</a> </q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Impact sur les directives</h3>
+                        <p>
+                            Il faudra probablement refactorer certaines directives
+                        </p>
+                        <p>
+                            <small><q>Méthode link supprimé, seulement des directives de type element, suppression du scope, bindings directement sur le controller...</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Component</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+angular
+  .module('angular-transition.heroes')
+  .component('heroes', {
+    templateUrl: 'app/heroes/heroes.template.html',
+    controller: 'HeroesController'
+  });
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                           Pour une directive c'est une function à déclarer, un objet dans le cas d'un component
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Modularisation de l'application</h3>
+                        <img src="images/modules.png">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Intégration de systemjs</h3>
+                        <p>
+                            Modifier le bootstrap de l'application avec Systemjs
+                        </p>
+                        <p>
+                            <small><q>Impact important sur l'application, correction sur l'injection de dépendance...</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Intégration des librairies angular</h3>
+                        <p>
+                            Déclaration des libairies en global dans systemjs
+                        </p>
+                        <p>
+                            <small><q>Certaines librairies peuvent être compliquées à charger avec systemjs</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Configuration</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+System.config({
+  map: {
+    'system-polyfills': 'node_modules/systemjs/dist/system-polyfills.js',
+    angular: 'node_modules/angular/angular',
+    'angular-router': 'bower_components/angular-ui-router/release/angular-ui-router',
+    'angular-resource': 'node_modules/angular-resource/angular-resource'
+  },
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Single responsibility</h3>
+                        <p>
+                            Une fonction par fichier
+                        </p>
+                        <p>
+                            <small><q>Ne pas mettre le controller, service, directives... dans le même fichier js</q></small>
+                        </p>
+                        <aside class="notes">
+                            #1 règle de john papa
+                            peu demander une refacto importante, c'est une mauvaise pratique de mettre plusieurs responsabilités dans le même fichier
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Import/Export des modules</h3>
+                        <p>
+                            Spec commonjs pour gérer les modules de l'application
+                        </p>
+                        <p>
+                            <small><q>Chaque fichier sera exporté et assemblé dans un fichier séparé avec la déclaration du module Angular</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Export d'un controller</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+function HeroesController(HeroesService) {
+  HeroesService.getAll().then(function(heroes) {
+    this.heroes = heroes;
+  }.bind(this));
+}
+
+HeroesController.prototype.onSelect = function(hero) {
+  this.selectedHero = hero;
+};
+
+HeroesController.$inject = ['HeroesService'];
+
+module.exports = HeroesController;
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Export d'un component</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+var HeroesController = require('./heroes.controller');
+
+module.exports = {
+  templateUrl: 'app/heroes/heroes.template.html',
+  controller: HeroesController
+};
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Import et déclaration dans Angular</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+var angular = require('angular');
+var Hero = require('./hero.entity');
+var HeroesService = require('./heroes.service');
+var HeroesComponent = require('./heroes.component');
+var heroes = module.exports = angular.module('angular-transition.heroes', [
+  'ngResource',
+  'ui.router'
+]);
+
+heroes.factory('Hero', Hero);
+heroes.service('HeroesService', HeroesService);
+heroes.component('heroes', HeroesComponent);
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            Tout ce code sera supprimé dans ANgular2, donc il vaut mieux l'isoler dans un fichier qui sera supprimé
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Evolution du langage</h3>
+                        <img src="images/language.png" width="250px">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Migration ES6 ou typescript</h3>
+                        <p>
+                            La migration peut se faire de manière incrémental
+                        </p>
+                        <p>
+                            <small><q>Les transpileurs babel et typescript tolère la présence d'ES5 dans les sources</q></small>
+                        </p>
+                        <aside class="notes">
+                            La migration ES6 sera beaucoup plus aisé que TypeScript
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Controller Typescript</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+import HeroesService from './heroes.service.ts';
+import Hero from './hero.interface';
+
+export class HeroesController {
+  selectedHero: Hero = null;
+  static $inject = ['HeroesService'];
+
+  constructor(private HeroesService: HeroesService) {
+    HeroesService.getAll().then(function (heroes: Array&lt;Hero&gt;) {
+      this.heroes = heroes;
+    }.bind(this));
+  }
+  onSelect(hero: Hero):void {
+    this.selectedHero = hero;
+  }
+}</code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Component Typescript</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+import { HeroesController } from './heroes.controller.ts';
+import { IComponentOptions } from 'angular';
+
+export default class HeroesComponent implements IComponentOptions {
+  public controller: Function;
+  public templateUrl: string;
+
+  constructor() {
+    this.controller = HeroesController;
+    this.templateUrl = 'app/heroes/heroes.template.html';
+  }
+}</code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Déclaration Angular Typescript</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+import angular from 'angular';
+
+import HeroResource from './hero.resource.ts';
+import HeroesService from './heroes.service.ts';
+import HeroesComponent from './heroes.component.ts';
+
+const heroes = angular.module('angular-transition.heroes', [
+  'ngResource',
+  'ui.router'
+]);
+
+heroes.factory('HeroResource', HeroResource);
+heroes.service('HeroesService', HeroesService);
+heroes.component('heroes', new HeroesComponent());
+
+export default heroes;</code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section data-background-color="#ffffff">
+                        <h3>Passage à Angular 2</h3>
+                        <img src="images/angular2.png">
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Migration Angular 2</h3>
+                        <p>
+                            La migration vers Angular 2 peut elle aussi se faire de manière incrémentale
+                        </p>
+                        <p>
+                            <small><q>L'équipe Angular a mis à disposition un module permettant de faire communiquer du code Angular 1 et Angular 2</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>NgUpgrade</h3>
+                        <p>
+                            Le module @angular/upgrade permet de faire cohabiter du code Angular 1 et 2
+                        </p>
+                        <p>
+                            <small><q>La librairie permet d'upgrader des composants Angular 1 pour les utiliser dans du code Angular 2 ou de downgrader des composants Angular 2 pour les utiliser dans du code Angular 1</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Déclaration de NgUpgrade</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+import { UpgradeAdapter } from '@angular/upgrade';
+
+export const upgradeAdapter = new UpgradeAdapter();</code>
+                        </pre>
+                        <aside class="notes">
+                            mise à disposition pour toute l'application
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Migration d'un component Angular 1</h3>
+                        <p>
+                            Transfert du controller dans la class du component et ajout de l'annotation @component
+                        </p>
+                        <p>
+                            <small><q>Un component Angular 2 est la somme d'un component Angular 1 et de son controller</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Component Angular 2</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+@Component({
+  selector: 'heroes',
+  templateUrl: 'app/heroes/heroes.template.html'
+})
+export class Heroes implements OnInit {
+
+  public heroes:Array&lt;Hero&gt; = [];
+
+  constructor(@Inject('HeroesService') private HeroesService: HeroesService) {}
+
+  ngOnInit() {
+    this.HeroesService.getAll().then(function (heroes:Array&lt;Hero&gt;) {
+      this.heroes = heroes.slice(1, 5);
+    }.bind(this));
+  }</code>
+                        </pre>
+                        <aside class="notes">
+                            Le component Heroes et le controller fusionne, le code du component va dans le @Component et le controller dans la class
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Upgrade de services Angular 1</h3>
+                        <p>
+                            Pour utiliser des services Angular 1 dans un component Angular 2, il faut l'upgrader
+                        </p>
+                        <p>
+                            <small><q>le composant est déclaré comme une directive et sera utilisable partout dans le code Angular</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Downgrade de composants</h3>
+                        <p>
+                            De la même façon, un composant Angular 2 doit être downgradé pour être utilisé dans Angular 1
+                        </p>
+                        <p>
+                            <small><q>On peut ainsi déclarer un composant Angular 2 dans une directive Angular 1, un service Angular 2 dans un service Angular 1...</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Upgrade d'un service Angular 1 et downgrade d'un composant</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+import { IDirectiveFactory } from 'angular';
+import { upgradeAdapter } from '../core/upgrade-adapter';
+import HeroResource from './hero.resource';
+import HeroesService from './heroes.service';
+import { HeroesComponent } from './heroes.component';
+
+const heroes: angular.IModule = angular.module('angular-transition.heroes', [
+  'ngResource'
+]);
+heroes.factory('HeroResource', HeroResource);
+heroes.service('HeroesService', HeroesService);
+
+heroes.directive('heroes',<IDirectiveFactory>upgradeAdapter.downgradeNg2Component(HeroesComponent));
+upgradeAdapter.upgradeNg1Provider('HeroesService');
+
+export default heroes;</code>
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Migration de l'arbre des composants</h3>
+                        <p>
+                            Partir de la base pour remonter vers le composant racine
+                        </p>
+                        <p>
+                            <small><q>Facilite la migration en commençant par les composants avec le moins de dépendances</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Router Angular 2</h3>
+                        <p>
+                            Le router n'est toujours pas stable
+                        </p>
+                        <p>
+                            <small><q>3 ème version livrée avec la RC2</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Fin de migration</h3>
+                        <p>
+                            Suppression des librairies Angular 1 et de ngUpgrade
+                        </p>
+                        <p>
+                            <small><q>Une fois totalement migrée, les dernières lib peuvent être supprimés</q></small>
+                        </p>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                </section>
+
+				<section>
+					<h2>Fin</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+			</div>
+			<div id="powered" style="display: inline-block;" class="fade-in">
+				<small>Powered by reveal.js : <a href="http://lab.hakim.se/reveal-js">http://lab.hakim.se/reveal-js</a></small>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+			Reveal.addEventListener( 'slidechanged', function(event) {
+			    if (Reveal.isFirstSlide() || Reveal.isLastSlide()) {
+			    	document.getElementById('powered').setAttribute('style', 'display: inline-block;');
+			    } else {
+			    	document.getElementById('powered').setAttribute('style', 'display: none;');
+			    }
+			});
+		</script>
+
+	</body>
+</html>
